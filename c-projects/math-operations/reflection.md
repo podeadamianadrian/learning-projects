@@ -44,12 +44,17 @@
 10. Empty inputs (just enter) printed a bad looking message on default case.
 11. Non-numerical values for the temperature defaulting to something I wasn't aware.
 12. Scanf() leaves non-numerical values in buffer which created an infinite retry loop.
+
 *The following is again a problem I encountered/realised:*
+
 13. What if the user inputs a space before writing any "actual character"? What if he writes 110 space characters (over my array), because then even if they do write actual characters after the spaces, it will get discarded by the "buffer clearing" part of code.
 *The following is a problem pointed out from an outside source:*
 14. Temperatures lower than absolute 0.
+
 *Aware of but decided not to "fix":*
+
 15. Separators for thousands/millions/etc and for decimals, different places use different spearators.
+
 ### How I Solved Them
 
 1. Fall through the cases as I intend.
@@ -66,8 +71,11 @@
 11. I created an int for the input, to get the return value of scanf, and if it's 0 to clear buffer, and retry for proper input.
 12. Clearing buffer inside the retry loop before next attempt.
 13. I created a short piece of code where it checks for space characters, if it's a full aray it will stop on '\0', if it's not the full array of spaces then it will proceed normally based on whatever key it finds first. If it is full array, the ch is '\0' (which is needed for the switch case) and there is no '\n' to be found, then it will go through the whole stdin by `getchar()` to find the first character that isn't a space, and it will act according to the first key found, at which point it will stop checking any other keys, and will proceed to clear input buffer.
+
 *The following I again implemented by myself without guidance:*
+
 14. Just a simple "if value < {number here} print "impossible value".
+
 ---
 
 ### Self-Check
@@ -83,6 +91,7 @@
     Besides switch cases, while loops, and if statements, I guess anything that interacts with a terminal and has an "input buffer" will make use of the buffer clearing according to its language. I don't see anything else tho that might be general or c-specific, because I see most stuff as being extremely general for now.
 5. **If this broke, how would I find the problem?**
     I would try to understand what happened exactly that it broke, and try to trace through the "possibility of it breaking". Like with the non-numerical values in the scanf looking for numbers. I might use some extra printf's here and there, because I still don't know how to use a debugger in VS Code.
+
 ---
 
 ### Transferable Knowledge
@@ -94,38 +103,51 @@ General switch case, while loop, and if statements, because they work across mos
 ### Notes
 
 After looking in, and losing the file of "NASA's C style guide" I decided to look at the linux kernel one, and decided to create my own which I will follow. Combining ideas from wherever I see, and deciding to write them down somewhere.
+
 I want to have "some edge-case handling": garbage input (default switch case), and repeated output because of "repeated input" (doing something for each character in the whole line, when I want it to do just for the first character of whatever line length there might be).
+
 I think `getchar()` might be the quick option I am looking for. I will try to use that. Checked by using "Beej's C Library Reference" (I know it's not *really* named that, but I want to keep it short.). This should read just one character from the whole line, so there shouldn't be any repeated input, and "forget" the rest. I will first get the code running and then test for it and change accordingly.
+
 I had to look for the binary character table just to be sure, because I am not sure if I will do a proper job if I would typecast. I guess it would be something like `(char) ch; switch (ch) { case "c" || "C": //code}` and so on, but I don't want to risk it so I will use integer values.
+
 I keep reading about typecasting, and trying to figure out how I can convert the character "C" for example to int and back (`getchar()` converts a character to integer by default, and I want to convert it back to character), but I guess I will just int ch then ch = getchar and then for switch I will go something like `case (int)'c' || (int)'C': //code` and hopefully it works. I am now just trying and learning from trial and error. I cannot find what I am looking for (or maybe I don't know to search/look for what I explicitly need/want).
+
 Had to quickly look for the logical operators to make sure that "||" is OR.
+
 While writing the code I encountered the following `case label value has already appeared in this switch at line 11 //C/C++(1578)`. I don't know what or why or how, but I cannot get rid of it by "fixing" whatever error there is. I will try to search it up so I can try and understand.
+
 It is because of the OR operator evaluating it all to 1 because true, and using "case 1" essentially, twice. I will fall through for options then, as suggested on the internet. I will remember from this mistake.
+
 Quite a few of the things I have done and learned I forgot to "document". But I am not going to try and figure out how to phrase them and whatnot. This whole document is supposed to show some part of my learning, and thought process, because I cannot capture it all properly in one document.
+
 While writing whether I can trace the code or not, I realised an edge case, what if the user inputs " celsius" (space at the element 0 of the array). I will test for it and update the rest of the document accordingly if it is a bug.
+
 While writting the document I realised I never gave the possibility for the user to exit the function temperature_converter. Not that it matters for now since the main loops into it, but that's something for when I get 2 or more functions in there.
+
 The final algorithm as well changed, I will update here so that there is a comparison of "before" and "after":
-    **Algorithm:** What's the step-by-step logic?
-        Initiallizing (but not assigning) values needed
-        Ask for source unit type and give option to exit
-        Get the array of characters written
-        Check if any character is a space, proceed to the next if it is.
-        Assign ch (for switch) as the first character that is not a space.
-        If ch is a '\0' (is it called null?) and strchr cannot find a '\n' (new line) in the array
-            check_char calling getchar()
-            while check_char is a space
-                check again calling getchar()
-            ch assigned to check_char
-        if strchr doesn't have a new line '\n' in the array
-            while getchar() isn't a newline (the block is empty, I just need the while check)
-        switch
-            q/Q: exit
-            '\n': no input detected, recall itself
-            c/C: input Celsius value, do math for the rest, break; if less than absolute 0, break;
-            k/K: input Kelvin value, do math for the rest, break; if less than absolute 0, break;
-            f/F: input Fahrenheit value, do math for the rest, break; if less than absolute 0, break;
-            default: character not expected, recall itself
-        while getchar() isn't a new line '\n' empty code block because I need just the while
+
+**Algorithm:** What's the step-by-step logic?
+    Initiallizing (but not assigning) values needed
+    Ask for source unit type and give option to exit
+    Get the array of characters written
+    Check if any character is a space, proceed to the next if it is.
+    Assign ch (for switch) as the first character that is not a space.
+    If ch is a '\0' (is it called null?) and strchr cannot find a '\n' (new line) in the array
+        check_char calling getchar()
+        while check_char is a space
+            check again calling getchar()
+        ch assigned to check_char
+    if strchr doesn't have a new line '\n' in the array
+        while getchar() isn't a newline (the block is empty, I just need the while check)
+    switch
+        q/Q: exit
+        '\n': no input detected, recall itself
+        c/C: input Celsius value, do math for the rest, break; if less than absolute 0, break;
+        k/K: input Kelvin value, do math for the rest, break; if less than absolute 0, break;
+        f/F: input Fahrenheit value, do math for the rest, break; if less than absolute 0, break;
+        default: character not expected, recall itself
+    while getchar() isn't a new line '\n' empty code block because I need just the while
+
 ---
 
 ## Simple Interest Calculator

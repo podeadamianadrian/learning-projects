@@ -13,6 +13,7 @@ Standalone C programs, ranging from basic exercises to more involved projects.
 ## Compilation
 
 Projects are compiled using:
+
 ```bash
 gcc -std=c17 -Wall -Wextra -pedantic -Werror -Wshadow -Wconversion -Wformat=2 -Wswitch-default -Wstrict-prototypes -g -o output.out main.c
 ```
@@ -39,7 +40,9 @@ Projects are organized by conceptual groups. Related projects that share similar
 For example, temperature conversion and interest calculation might both live in a `math-operations/` folder as functions in the same program, since they're both straightforward input-calculation-output patterns.
 
 Each project folder contains:
+
 - Source code (`.c` files)
+
 - A reflection document with notes on the development process
 
 ## Reflection Documents

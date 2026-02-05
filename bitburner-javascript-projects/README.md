@@ -23,7 +23,9 @@ Scripts run inside the BitBurner game. To run any script from this folder:
 Scripts are organized by game system. Related scripts that work together or build on each other are kept in the same folder.
 
 Each folder contains:
+
 - Source code (`.js` files)
+
 - A reflection document with notes on the development process
 
 ## Game Terms

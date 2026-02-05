@@ -8,6 +8,7 @@ Command-line utilities for mathematical conversions and calculations.
 - `reflection.md` — Development notes for the source code
 
 ## Compilation
+
 ```bash
 gcc -std=c17 -Wall -Wextra -pedantic -Werror -Wshadow -Wconversion -Wformat=2 -Wswitch-default -Wstrict-prototypes -g -o main.out main.c
 ```
@@ -15,11 +16,13 @@ gcc -std=c17 -Wall -Wextra -pedantic -Werror -Wshadow -Wconversion -Wformat=2 -W
 This is the way I compile.
 
 It should work with:
+
 ```bash
 gcc -std=c11 -o main.out main.c
 ```
 
 ## Running
+
 ```bash
 ./main.out
 ```
