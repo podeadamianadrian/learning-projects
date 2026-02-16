@@ -12,7 +12,25 @@ Standalone C programs, ranging from basic exercises to more involved projects.
 
 ## Compilation
 
-Projects are compiled using:
+Projects are compiled using CMake or GCC.
+
+CMake is the primary compilation method. From the `c-projects` directory:
+
+First time setup is:
+
+```bash
+mkdir build ; cd build ; cmake .. ; make
+```
+
+Subsequent builds:
+
+```bash
+cd build ; make
+```
+
+*Notice:* Re-run `cmake ..` from the `build/` directory whenever `CMakeLists.txt` has been modified.
+
+GCC is the secondary method of compilation as of right now. The main command is:
 
 ```bash
 gcc -std=c17 -Wall -Wextra -pedantic -Werror -Wshadow -Wconversion -Wformat=2 -Wswitch-default -Wstrict-prototypes -g -o output.out main.c
@@ -30,19 +48,28 @@ gcc -std=c17 -Wall -Wextra -pedantic -Werror -Wshadow -Wconversion -Wformat=2 -W
 - `-Wstrict-prototypes` — requires proper function prototypes
 - `-g` — includes debug symbols for GDB/VS Code debugger
 - `-o output.out` — names the executable (replace with project name)
+- when compiling manually, add required utility source files (for example `../utilities/utils.c`)
 
-This setup catches most beginner mistakes at compile time and enforces habits that transfer to professional C development.
+This setup is meant to catch most beginner mistakes at compile time and enforces habits that transfer to professional C development.
 
 ## Structure
 
+The `utilities/` directory contains my personal "utility functions" such as (but not limited to) functions for: menus, clearing input left in buffer, formatting, and whatever I might deem "refactorable" enough.
+
 Projects are organized by conceptual groups. Related projects that share similar patterns or build on each other are kept together in the same folder, often as functions within the same source file.
 
-For example, temperature conversion and interest calculation might both live in a `math-operations/` folder as functions in the same program, since they're both straightforward input-calculation-output patterns.
+For example, temperature conversion and factorial calculator both live in a `math-operations/` folder as functions in the same program, since they're both straightforward input-calculation-output patterns.
 
-Each project folder contains:
+The `c-projects/` root contains:
 
-- Source code (`.c` files)
+- `CMakeLists.txt` for the cmake option of compilation
+- `utilities/` which contains my "personal utility functions", a README similar to the project folders, and a reflection document similar to the project folders
+- project folders created according to the "conceptual group" that they are part of (for example: `math-operations/`)
 
+Each project folder (for example: `math-operations/`) contains:
+
+- Source code (`.c` file)
+- README file trying to do (as much as I can) a "professional" presentation of the source code
 - A reflection document with notes on the development process
 
 ## Reflection Documents

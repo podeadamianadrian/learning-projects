@@ -9,12 +9,15 @@
 ### Specification (Before Writing Code)
 
 **Input:** What information does this function need?
+
     Server list, hacking level, port openers/programs
 
 **Output:** What does it create or return?
+
     Gives root access to the servers
 
 **Decisions:** What choices does it make?
+
     Which servers to open ports and root
 
 **Algorithm:** What's the step-by-step logic?
@@ -33,6 +36,7 @@
                     for loop to open ports with the available programs
                     nuke
         sleep(duration)
+
 ---
 
 ### Problems Encountered
@@ -48,14 +52,23 @@
 ### Self-Check
 
 1. **Can I trace and predict what happens?**
+
     Yes, I can trace it, initialize variables, initialize programs array, while true loop to count programs (they can change over time), for programs of programs list increment existing programs variable, for server of servers list if it doesn't have root then check if existing programs is more or equal to servers port requirement and hacking level is more or equal to required hacking level, for loop to run the code of the program, then nuke and sleep a defined duration.
+
 2. **Can I explain why each part exists?**
+
     I hopefully managed to explain all of the parts that need explaining in the code with comments, along with the reflection writing about them.
+
 3. **What pattern did I use? Did I see it before?**
+
     I am not sure I can identify any pattern specifically right now, but there might be a couple, I am not counting basic "for of" "while" and "if condition" statements as patterns.
+
 4. **What might be general vs BitBurner-specific?**
+
     The array I created is general, the file reading is general, the "configurable duration at the top" is general (to avoid magic numbers), and the loops associated with them are general. The ns api calls are specific.
+
 5. **If this broke, how would I find the problem?**
+
     I am quite certain that it doesn't have a way to "break" right now.
 
 ---
