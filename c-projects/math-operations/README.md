@@ -4,7 +4,7 @@ Command-line utilities for mathematical conversions and calculations.
 
 ## Contents
 
-- `main.c` — Source code containing all functions
+- `math-operations.c` — Source code containing all functions
 - `reflection.md` — Development notes for the source code
 
 ## Compilation

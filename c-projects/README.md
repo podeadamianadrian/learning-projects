@@ -58,7 +58,7 @@ The `utilities/` directory contains my personal "utility functions" such as (but
 
 Projects are organized by conceptual groups. Related projects that share similar patterns or build on each other are kept together in the same folder, often as functions within the same source file.
 
-For example, temperature conversion and factorial calculator both live in a `math-operations/` folder as functions in the same program, since they're both straightforward input-calculation-output patterns.
+For example, temperature conversion and factorial calculator both live in a `math-operations.c` file as functions in the same program, since they're both straightforward input-calculation-output patterns.
 
 The `c-projects/` root contains:
 
