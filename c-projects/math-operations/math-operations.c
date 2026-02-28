@@ -199,7 +199,7 @@ void FactorialCalculator(void) {
 }
 
 int main(void) {
-    struct MenuItem items[] = {
+    struct menuItem items[] = {
         {"Temperature Converter", "Convert between Celsius, Fahrenheit and Kelvin", TemperatureConverter},
         {"Factorial Calculator", "Calculates factorial of a given number", FactorialCalculator}};
     while (true) {

@@ -141,14 +141,14 @@ The function needs:
 - `<string.h>` for `strchr()`;
 - `<stdlib.h>` for `strtol()`, and `exit()`;
 - `<errno.h>` for `errno`;
-- `"utils.h"` for `struct MenuItem`
+- `"utils.h"` for `struct menuItem`
 
 ### Usage
 
 This function serves the purpose of a menu that the user can pick from.
 The place of usage is not "critical", but I usually (and therefore recommend to) put it at the beginning of any program where I could use a menu.
 The function needs to be looped, as it doesn't loop by itself (intentional).
-I suggest having at least one function in a list of `struct MenuItem array[]` when passing the parameters into the function, for "intended behavior".
+I suggest having at least one function in a list of `struct menuItem array[]` when passing the parameters into the function, for "intended behavior".
 
 ### Limitations
 

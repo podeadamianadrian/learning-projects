@@ -9,13 +9,13 @@ These are functions that I will use generally, because they go in a lot of place
 */
 
 /*
-MenuItem - struct for functions, containing .name, .description and .action (function) to call when selected
+menuItem - struct for functions, containing .name, .description and .action (function) to call when selected
 
 Functions passed in this struct need to have void return, no parameters.
 */
-struct MenuItem {
-    char *name; //name of the function
-    char *description; //description of the function
+struct menuItem {
+    char *name; // name of the function
+    char *description; // description of the function
     void (*action)(void); // void return function, no parameters
 };
 
@@ -34,12 +34,12 @@ void ClearInput(void);
 MenuDisplay - Displays a menu.
 
 The parameters:
-`array_name[]` needs to be a MenuItem array of structs, with a size equal or bigger than 1,
+`array_name[]` needs to be a menuItem array of structs, with a size equal or bigger than 1,
 `array_size` needs to be the size of the array.
 
 It will create a list, starting from 0 with exit which exits the program, and listing the functions in the order given starting from the number 1.
 It will call the function chosen by the user.
 */
-void MenuDisplay(struct MenuItem array_name[], int array_size);
+void MenuDisplay(struct menuItem array_name[], int array_size);
 
 #endif

@@ -14,7 +14,7 @@ void ClearInput(void) {
     }
 }
 
-void MenuDisplay(struct MenuItem array_name[], int array_size) {
+void MenuDisplay(struct menuItem array_name[], int array_size) {
     char user_input[10], *end;
     int i;
     long choice;
@@ -53,5 +53,5 @@ void MenuDisplay(struct MenuItem array_name[], int array_size) {
     if (choice == 0) {
         exit(0);
     }
-    array_name[choice-1].action();
+    array_name[choice - 1].action();
 }

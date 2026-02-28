@@ -43,7 +43,7 @@ The user can exit with `CTRL+D` (EOF will exit the program), `CTRL+C` (general q
 #### Parameters
 
 It takes two parameters:
-- array of MenuItem struct (the list of functions, with .name .description and .action for function call)
+- array of menuItem struct (the list of functions, with .name .description and .action for function call)
 - array size (number of elements in the array)
 
 The struct itself needs to have .name as a string, .description as a string, and the .action as a void return void parameters function.
