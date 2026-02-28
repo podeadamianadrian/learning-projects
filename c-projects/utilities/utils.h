@@ -40,6 +40,6 @@ The parameters:
 It will create a list, starting from 0 with exit which exits the program, and listing the functions in the order given starting from the number 1.
 It will call the function chosen by the user.
 */
-void MenuDisplay(struct menuItem array_name[], int array_size);
+void MenuDisplay(const struct menuItem array_name[], const int array_size);
 
 #endif

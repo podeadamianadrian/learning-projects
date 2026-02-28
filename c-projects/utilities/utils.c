@@ -14,7 +14,7 @@ void ClearInput(void) {
     }
 }
 
-void MenuDisplay(struct menuItem array_name[], int array_size) {
+void MenuDisplay(const struct menuItem array_name[], const int array_size) {
     char user_input[10], *end;
     int i;
     long choice;
