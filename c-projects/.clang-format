@@ -1,0 +1,89 @@
+# .clang-format — C Formatting Configuration
+# clang-format 14+ | Place in project root or ~/ for global fallback
+# Per-section disable: // clang-format off / // clang-format on
+
+---
+Language: Cpp
+BasedOnStyle: LLVM
+
+# --- Line Width ---
+ColumnLimit: 0  # never auto-wrap
+
+# --- Indentation ---
+UseTab: Never
+IndentWidth: 4
+ContinuationIndentWidth: 4
+IndentCaseLabels: true          # case indented inside switch
+IndentPPDirectives: AfterHash   # #if / #  include / #  endif
+
+# --- Braces ---
+BreakBeforeBraces: Attach       # opening brace on same line (K&R)
+AllowShortBlocksOnASingleLine: Empty
+SpaceInEmptyBlock: false        # empty braces: {}
+
+# --- Short Statements ---
+AllowShortIfStatementsOnASingleLine: WithoutElse  # if (x) { return; }
+AllowShortLoopsOnASingleLine: true    # while (getchar() != '\n') { /* empty */ }
+AllowShortCaseLabelsOnASingleLine: true   # case 1: return "one";
+AllowShortEnumsOnASingleLine: true        # enum Color { RED, GREEN, BLUE };
+AllowShortFunctionsOnASingleLine: None    # never single-line
+
+# --- Spaces ---
+SpaceBeforeParens: ControlStatements  # if (x) yes, sizeof(x) no
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+SpaceBeforeSquareBrackets: false
+SpaceAfterCStyleCast: false           # (int)x
+SpaceBeforeAssignmentOperators: true
+SpacesBeforeTrailingComments: 1
+
+# --- Pointers ---
+PointerAlignment: Right  # int *ptr
+
+# --- Strings ---
+BreakStringLiterals: false
+
+# --- Alignment ---
+AlignTrailingComments: false
+AlignConsecutiveAssignments: None
+AlignConsecutiveDeclarations: None
+AlignConsecutiveMacros: None
+AlignEscapedNewlines: Right     # macro \ aligned right
+AlignOperands: DontAlign
+
+# --- Blank Lines ---
+MaxEmptyLinesToKeep: 2
+KeepEmptyLinesAtTheStartOfBlocks: false
+SeparateDefinitionBlocks: Always  # blank line between definitions
+
+# --- End of File ---
+InsertNewlineAtEOF: true
+
+# --- Includes ---
+SortIncludes: CaseSensitive
+IncludeBlocks: Regroup
+IncludeCategories:
+  - Regex: '^<'
+    Priority: 1   # system headers first
+  - Regex: '^"'
+    Priority: 2   # local headers second
+
+# --- Function Arguments ---
+BinPackArguments: true
+BinPackParameters: true
+
+# --- Return Type ---
+AlwaysBreakAfterReturnType: None  # same line as function name
+
+# --- Foreach Macros (add loop-like macro names here if needed) ---
+ForEachMacros: []
+
+# --- Penalties (inactive at ColumnLimit: 0, here if that changes) ---
+PenaltyBreakBeforeFirstCallParameter: 19
+PenaltyBreakComment: 300
+PenaltyBreakFirstLessLess: 120
+PenaltyBreakString: 1000
+PenaltyBreakAssignment: 2
+PenaltyExcessCharacter: 1000000
+PenaltyReturnTypeOnItsOwnLine: 60
+...

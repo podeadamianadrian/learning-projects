@@ -65,6 +65,8 @@ The `c-projects/` root contains:
 - `CMakeLists.txt` for the cmake option of compilation
 - `utilities/` which contains my "personal utility functions", a README similar to the project folders, and a reflection document similar to the project folders
 - project folders created according to the "conceptual group" that they are part of (for example: `math-operations/`)
+- `.clang-format` as a backup copy of my system-wide formatting configuration, in case I ever lose it from my system
+- [`STYLE.md`](STYLE.md) documenting the coding style I follow and why
 
 Each project folder (for example: `math-operations/`) contains:
 
