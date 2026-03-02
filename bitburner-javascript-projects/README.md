@@ -4,7 +4,9 @@ Automation scripts written in JavaScript for BitBurner.
 
 ## What is BitBurner
 
-BitBurner is a programming game where you write JavaScript to automate in-game systems. I use it as a learning environment for programming—writing scripts that solve challenges, automate tasks, and interact with game mechanics. It's a game, but I treat it as a sandbox for building programming habits and thinking patterns, along with transferable knowledge.
+BitBurner is a programming game where you write JavaScript to automate in-game systems.
+
+It's a game, but I treat it as a sandbox for building programming habits and thinking patterns, along with transferable knowledge.
 
 For more information about the game itself, see the [BitBurner repository](https://github.com/bitburner-official/bitburner-src).
 
@@ -16,7 +18,7 @@ Scripts run inside the BitBurner game. To run any script from this folder:
 2. In the game terminal, create a new file: `nano filename.js`
 3. Paste the code into the editor and save
 4. Run with: `run filename.js`
-5. Optional addition of `--tail` to see the automatic log output and/or anything printed in the window that will pop up when running the command: `run filename.js --tail`
+5. Optionally add `--tail` to open script log output
 
 ## Structure
 
@@ -25,8 +27,11 @@ Scripts are organized by game system. Related scripts that work together or buil
 Each folder contains:
 
 - Source code (`.js` files)
-
 - A reflection document with notes on the development process
+
+### Projects
+
+- [servers/](./servers/) - automation scripts to handle server interactions
 
 ## Game Terms
 
@@ -40,6 +45,6 @@ Some terms that appear in the scripts and documentation:
 
 For deeper explanations of game mechanics, and coverage of all the terms that appear in the scripts and documentation, see the [BitBurner documentation](https://github.com/bitburner-official/bitburner-src/blob/stable/markdown/bitburner.ns.md).
 
-## Reflection Documents
+## Reflection documents
 
 Each project has a reflection document where I write about what I was trying to do, problems encountered, and how I solved them. For more detail on what these contain, see the [root README](../README.md#reflection-documents).

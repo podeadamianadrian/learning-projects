@@ -1,28 +1,28 @@
-# C Projects
+# C projects
 
-Standalone C programs, ranging from basic exercises to more involved projects.
+A collection of standalone, standard C projects ranging from basic exercises to more involved projects. They are built on: strict compilation flags and portability-first "ideals"; while I attempt to build them as optimized as I know how to make them.
 
-## Development Environment
+The projects here are built in C instead of other languages, so that I can learn fundamentals while building a portfolio.
+
+## Development environment
 
 - **Operating System:** Linux
 - **Compiler:** GCC
+- **Build system:** CMake
 - **C Standard:** C17
 - **Editor:** VS Code
-- **Version Control:** Git, pushing to GitHub
 
 ## Compilation
 
 Projects are compiled using CMake or GCC.
 
-CMake is the primary compilation method. From the `c-projects` directory:
-
-First time setup is:
+CMake is the primary compilation method. The command that I use from the `c-projects` directory:
 
 ```bash
 mkdir build ; cd build ; cmake .. ; make
 ```
 
-Subsequent builds:
+After that:
 
 ```bash
 cd build ; make
@@ -36,44 +36,49 @@ GCC is the secondary method of compilation as of right now. The main command is:
 gcc -std=c17 -Wall -Wextra -pedantic -Werror -Wshadow -Wconversion -Wformat=2 -Wswitch-default -Wstrict-prototypes -g -o output.out main.c
 ```
 
-- `-std=c17` — targets the C17 standard
-- `-Wall` — enables common warnings
-- `-Wextra` — enables additional warnings beyond -Wall
-- `-pedantic` — enforces strict ISO C compliance
+I went through the [man pages](https://man7.org/linux/man-pages/man1/gcc.1.html#OPTIONS) of GCC so that I can understand the flags better (they are hard to read) and this is my understanding of the flags I use:
+
+- `-std=c17` — compiles for the C17 standard
+- `-Wall` — covers most common mistakes
+- `-Wextra` — covers "some extra warnings"
+- `-pedantic` — enforces as strict ISO C compliance as possible
 - `-Werror` — treats all warnings as errors (must fix to compile)
-- `-Wshadow` — warns when variable shadows another in outer scope
-- `-Wconversion` — warns on implicit type conversions that may lose data
-- `-Wformat=2` — strict checking of printf/scanf format strings
+- `-Wshadow` — warns when a variable is named the same as another from outer scope
+- `-Wconversion` — warns on "accidental" type conversions (so I don't, for example, truncate floats)
+- `-Wformat=2` — strict checking of printf/scanf format strings (%e for doubles, security holes and so on)
 - `-Wswitch-default` — warns when switch lacks default case
-- `-Wstrict-prototypes` — requires proper function prototypes
-- `-g` — includes debug symbols for GDB/VS Code debugger
+- `-Wstrict-prototypes` — requires proper function prototypes (I cannot have empty parameters, must void)
+- `-g` — includes debug symbols for GDB/VS Code debugger (for when I manage to set it up)
 - `-o output.out` — names the executable (replace with project name)
 - when compiling manually, add required utility source files (for example `../utilities/utils.c`)
 
-This setup is meant to catch most beginner mistakes at compile time and enforces habits that transfer to professional C development.
+This setup is meant to catch as many mistakes I might make as possible, since I have come to the realization that the compiler is my friend (not my enemy), and that it's easier to "catch bugs" at compile time than later. The list might expand in the future based on what I learn and the way in which I understand the man pages.
+
+For running/"testing" the projects, each project README describes how to run the compiled program.
 
 ## Structure
 
-The `utilities/` directory contains my personal "utility functions" such as (but not limited to) functions for: menus, clearing input left in buffer, formatting, and whatever I might deem "refactorable" enough.
+The naming is an attempt at "self-explanatory" names.
 
-Projects are organized by conceptual groups. Related projects that share similar patterns or build on each other are kept together in the same folder, often as functions within the same source file.
+Small (function level) projects are organized by conceptual groups. They are related in ways that share similar patterns or build on each other.
 
-For example, temperature conversion and factorial calculator both live in a `math-operations.c` file as functions in the same program, since they're both straightforward input-calculation-output patterns.
+Other projects (bigger than just a function or two) are in their own folders, organized under "conceptual folders". The "conceptual folders" put projects that have similar enough connections in a group.
 
-The `c-projects/` root contains:
+- `CMakeLists.txt` - for the option to compile/build with CMake
+- `.clang-format` - a "display" and backup copy of my system-wide formatting configuration
+- `STYLE.md` - documenting the coding style I follow and why
 
-- `CMakeLists.txt` for the cmake option of compilation
-- `utilities/` which contains my "personal utility functions", a README similar to the project folders, and a reflection document similar to the project folders
-- project folders created according to the "conceptual group" that they are part of (for example: `math-operations/`)
-- `.clang-format` as a backup copy of my system-wide formatting configuration, in case I ever lose it from my system
-- [`STYLE.md`](STYLE.md) documenting the coding style I follow and why
+### Projects
 
-Each project folder (for example: `math-operations/`) contains:
+- [utilities/](./utilities/) - a collection of "personal utility functions", with similarities to the project folders
+- [math-operations/](./math-operations/) - input-calculate-output "predetermined calculators" wrapped in a menu
 
-- Source code (`.c` file)
-- README file trying to do (as much as I can) a "professional" presentation of the source code
+Each project folder contains:
+
+- Source code
+- README file trying to do a "professional" presentation of the source code
 - A reflection document with notes on the development process
 
-## Reflection Documents
+## Reflection documents
 
 Each project has a reflection document where I write about what I was trying to do, problems encountered, and how I solved them. For more detail on what these contain, see the [root README](../README.md#reflection-documents).

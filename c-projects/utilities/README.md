@@ -1,24 +1,17 @@
 # Utilities
 
-The folder contains utility functions that are going to be reused across my code.
-It is its own folder for my own easy retrieval.
-
-## Contents
-
-- `reflection.md` — Development notes for the source code
-- `utils.c` — Source code containing all functions
-- `utils.h` — Header file declaring all functions
-
-## Compilation
-
-This code doesn't get compiled standalone, it is compiled along with the source code that calls these functions.
-The compilation process is done from the parent directory with CMake. For more detail on the compilation process see the [c-projects README](../README.md/#compilation).
+Utility functions extracted from repeated code or built for reuse. All utilities share a single source file.
 
 ## Usage
 
-These functions are used in different projects for their utility purpose, not to be "used"/ran/compiled standalone.
-If compiling with CMake, `#include "utils.h"` in the calling project should be enough for successful compilation.
-If compiling manually, `#include "../utilities/utils.h"` in the calling project and `../utilities/utils.c` to the gcc command as a source file are required steps for successful compilation.
+These utilities handle repetitive tasks that appear across projects so that individual projects don't reimplement them.
+
+With CMake, `#include "utils.h"` in the calling project is enough.
+With GCC only, `#include "../utilities/utils.h"` in the calling project and `../utilities/utils.c` added to the gcc command as a source file.
+
+## Reflection documents
+
+A reflection document is where I write about what I was trying to do, problems encountered, and how I solved them. For more detail on what these contain, see the [root README](/README.md#reflection-documents).
 
 ## Functions
 
@@ -53,5 +46,5 @@ The struct itself needs to have .name as a string, .description as a string, and
 - It assumes stdin is always active.
 - On EOF it will exit.
 - It needs at least one function for proper expected results.
-- It cannot automatically detect the list, it is quite hardcoded before passing the parameters to the function.
-- It takes only numerical input (no string parsing yet, no fuzzy matching, no "narrow down based on matches").
+- No automatic detection of options list, needs manual building before calling
+- It takes only numerical input.

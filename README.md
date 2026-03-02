@@ -1,41 +1,66 @@
-# Learning Projects
+# Learning projects
 
-This repository is where I document my programming learning. I'm a career switcher working toward a software development position, and this serves as proof of work for that goal.
+Created by, maintained by, and evolving with a construction worker, this is a collection of projects as proof of work and the work behind the work.
 
-## What This Is
+## About
 
-A collection of projects I build while learning to program. The code here represents where I am at any given point, not polished portfolio pieces. Some projects are rough, some are cleaner.
+This repo "displays" my work as a career switcher. The work here is what I can come up with and do at the time of writing each project, representing my progress in the "learning programming" path, sometimes with fast progress and sometimes with slower progress because I am self-teaching with no CS degree, no courses, relying instead on free resources on the internet and whatever I can get my hands on to learn.
 
-Everything here is to show what things I built, and for me to learn from the process (how Git/GitHub works and programming).
+The stuff I build in this repo is there to further my learning by teaching me programming foundations that aren't tied to one language and by teaching me git and version control practices.
 
-I'm self-taught, learning independently through free resources, books, and building things. I don't have a CS education, and I am not using courses. Everything here comes from figuring things out on my own, making mistakes, and fixing them.
+I do my best when building a project in this repo whether it is a simple input-calculation-output loop or a game or complex clones of well-known tools, and the languages/"technologies" used in the repo are picked in a "this seems like a good starting point" manner.
 
-## Why I'm Doing This
+### Approach
 
-There are two reasons I'm putting this together.
+I write code with portability in mind, avoiding platform-specific code as much as I can (since I cannot test yet on all environments), so that the code hopefully works on most contemporary machines. I am aware that portability is important in a lot of industries, and I want to build that habit early.
 
-The first is practical: I want something concrete to show potential employers. A repository with actual code is more useful than saying "I'm learning to program" with nothing to back it up. This is the backing.
+Right now, all of my code is built and tested on Linux. Lately I have been trying to set up VMs to start testing on other platforms as well (macOS is quite tricky), so cross-platform verification is coming soon.
 
-The second is personal: I want to be capable of making things by myself. Games, apps, tools, whatever I end up building. The end goal is working in the programming field somewhere. I haven't picked a specific niche yet because I don't know enough to make that choice well. For now I'm building general capability and seeing what direction makes sense as I learn more.
+In a similar vein, I want to become competent at "optimizing" my code, so that I don't bloat systems, I don't waste resources doing a simple thing, and I stay mindful of performance.
 
-Game development is a direction I'm interested in, but it's not the only one. I'm keeping options open while focusing on fundamentals.
+## Overview
 
-## What's In Here
+The repository is organized by language and technology; I am attempting self-descriptive naming. Folders listed here contain either general information about the projects in their subfolders (first level), or projects themselves (second level). Every folder contains a README; every project folder contains an additional reflection file.
+The folder structure will grow with me.
 
-The repository is organized by language and technology. The subfolders are named to be self-explanatory, and each one has its own README with specifics about what's inside.
+- [c-projects/](c-projects/) - standard C projects
+    - [math-operations/](c-projects/math-operations/) - a group of projects in the same file doing predetermined calculations
+    - [utilities/](c-projects/utilities/) - utility functions extracted or planned for reuse
+- [bitburner-javascript-projects/](bitburner-javascript-projects/) - JavaScript projects written inside BitBurner game environment
+    - [servers/](bitburner-javascript-projects/servers/) - game-related automation scripts to handle in-game server interactions
 
-As I learn new things and work on new projects, more folders might appear. The structure will grow with what I'm doing.
+## Motivation
 
-## Reflection Documents
+There are multiple sides to why the repo exists; the simplest is: I need something to show for a programming job, since I have no "formal education" for it.
+"I am learning to program" means nothing without proof, so this repo is the proof.
 
-Inside project folders, there are reflection documents.
+The more complex side is that I want to be able to build things, whatever those things end up being, and if people end up liking them, using them, or even want to help the "development" (of the program or the programmer) then that's even better.
 
-These are where I write about: what I was trying to do; problems I ran into; how I solved them; what I learned along the way. They're not polished write-ups or tutorials. They're my thinking while working through the code which can be sometimes messy, sometimes repetitive, but shows some of the process I went through. The purpose is to document what's happening while I'm learning, not to present a clean narrative after the fact, **keep this information in mind when opening any of them**.
+A lot of the projects that I end up creating are not "following a niche", because I don't yet have enough knowledge to go towards a niche, they are instead just things I built. To show how wide my interest actually is, and that I haven't chosen a niche yet, here are some current domains of interest:
 
-If someone wants to see how I approach problems and how I think through things when I'm stuck, the reflection documents show some level of that.
+- system administration and/or operations, infrastructure, DevOps
+- cybersecurity, networking, embedded systems
+- game development, graphics programming
+- automation, desktop applications
+
+Some of them are similar to each other, others are very different; the point is: I have a wide interest in programming by itself, and that is going to push me further into learning. I am here for the "journey" not just for the "destination".
+
+## Reflection documents
+
+Inside every project there are reflection documents. Their purpose: to make me learn more intentionally by making me focus on more than just the code, and reflect on my learning and what I have done.
+
+They cover: what I was trying to do, problems that I ran into, how I solved them (and if I solved them), what I learned during the project, how I've gone through the project, and much more.
+
+They are not tutorials, polished write-ups, or documents explaining my code in detail — they are thoughts, observations, and ideas that show what I learned and the process I have gone through. I use the term "thoughts" because that's essentially what lies in there: the thinking that I was able to capture while writing the code. **Keep this information in mind when opening any of the documents**.
 
 ## Future
 
-I don't have a fixed expansion plan. Projects get added based on what I'm learning and what catches my interest at the time. Some things might sit untouched for a while, then get picked back up. The pace depends on what else is going on in my life.
+Now to answer the question "Where am I headed with this?": I don't know.
 
-The structure might change as this grows. If it does, I'll update things to make sense of whatever the repository becomes.
+I have a long-standing interest in programming, and recently I found the courage to start tackling this domain. To my surprise, it wasn't actually as "scary" as I initially thought.
+
+The near-future goal is for me to work as a programmer; the far-future goal is not so clear: currently I am trying to learn about the field as a whole, more than a specific language. I want to say "I can make these things", not "I know this language", and for that I need to set foundations somehow, and if I set them the right way (which I hope I do), I will have an easier time learning other languages in the future.
+
+For now I am going for C because I have read that it is an "unforgiving" language. It forces the person at the keyboard to be careful, responsible, and intentional during development, because C assumes the developer knows what they are doing; so I thought it's a good language to build foundations on.
+
+The repo is continuously growing, along with whatever knowledge I gain in the field of programming. So this might be a completely different repo in 3 months, or if I find a niche by then, it will just be more focused in a specific direction.
