@@ -26,6 +26,7 @@ The folder structure will grow with me.
 - [c-projects/](c-projects/) - standard C projects
     - [math-operations/](c-projects/math-operations/) - a group of projects in the same file doing predetermined calculations
     - [utilities/](c-projects/utilities/) - utility functions extracted or planned for reuse
+    - [hangman/](c-projects/games/terminal-based-games/hangman/) - Word guessing game with user profiles, difficulty customization, persistent stats, and adaptive terminal display
 - [bitburner-javascript-projects/](bitburner-javascript-projects/) - JavaScript projects written inside BitBurner game environment
     - [servers/](bitburner-javascript-projects/servers/) - game-related automation scripts to handle in-game server interactions
 

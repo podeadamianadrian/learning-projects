@@ -72,6 +72,7 @@ Other projects (bigger than just a function or two) are in their own folders, or
 
 - [utilities/](./utilities/) - a collection of "personal utility functions", with similarities to the project folders
 - [math-operations/](./math-operations/) - input-calculate-output "predetermined calculators" wrapped in a menu
+- [hangman/](./games/terminal-based-games/hangman/) - Word guessing game with user profiles, difficulty customization, persistent stats, and adaptive terminal display
 
 Each project folder contains:
 
